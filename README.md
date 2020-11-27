@@ -6,6 +6,8 @@
 
 - Context API for managing state (context/global)
 
+- custom hook for context: useGlobalContext()
+
 - Simple Layout (components/layout)
 
 - Path Aliases via react-app-rewired & plugins
