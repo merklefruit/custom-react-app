@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: "DM Sans";
+  font-family: "DM Sans", sans-serif;
   background: ${(props) => props.theme.background};
   overscroll-behavior: none;
 
@@ -31,7 +31,7 @@ body {
   color: ${({ theme }) => theme.text};
 
   h1, h2, h3, h4 {
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
   }
 
   a {

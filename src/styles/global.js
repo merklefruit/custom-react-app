@@ -35,10 +35,7 @@ export const Button = styled(motion.button)`
   color: black;
   border: none;
   margin-top: 0;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 30px 10px 30px;
   cursor: pointer;
   font-size: 1.15rem;
   font-weight: 400;
