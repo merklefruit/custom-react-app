@@ -10,7 +10,7 @@ function App() {
   return (
     <Provider initialState={initialState} reducer={reducer}>
       <Helmet>
-        <title>SaaS4Devs</title>
+        <title>Custom React App</title>
       </Helmet>
       {/* Add React.Suspense support */}
       <Router>

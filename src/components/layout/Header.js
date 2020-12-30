@@ -1,18 +1,12 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "@context/global";
-import { SET_THEME } from "@context/types";
+import { useTheme } from "@hooks/useTheme";
 
 import { Container } from "@styles/global";
+import { MoonStars, Sun, List, X } from "phosphor-react";
 
 const Header = ({ toggleMenu, setToggleMenu }) => {
-  const [{ theme }, dispatch] = useGlobalContext();
-  const toggleTheme = (newTheme) => {
-    dispatch({
-      type: SET_THEME,
-      theme: newTheme,
-    });
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Container>
@@ -28,11 +22,21 @@ const Header = ({ toggleMenu, setToggleMenu }) => {
               <Link to="/2">Second Page</Link>
             </p>
             {theme === "light" && (
-              <button onClick={() => toggleTheme("dark")}>🌜</button>
+              <button onClick={() => toggleTheme("dark")}>
+                <MoonStars size={24} />
+              </button>
             )}
             {theme === "dark" && (
-              <button onClick={() => toggleTheme("light")}>☀️</button>
+              <button onClick={() => toggleTheme("light")}>
+                <Sun size={24} />
+              </button>
             )}
+          </div>
+
+          <div className="nav-mobile">
+            <div onClick={() => setToggleMenu(!toggleMenu)}>
+              {toggleMenu ? <X size={28} /> : <List size={28} />}
+            </div>
           </div>
         </div>
       </CustomHeader>
@@ -67,19 +71,34 @@ const CustomHeader = styled.div`
 
   .nav-items {
     display: flex;
+    align-items: center;
+
+    @media (max-width: 550px) {
+      display: none;
+    }
 
     p {
-      margin-left: 15px;
       a {
+        margin-left: 2rem;
       }
     }
   }
 
+  .nav-mobile {
+    @media (min-width: 550px) {
+      display: none;
+    }
+
+    display: flex;
+    align-items: center;
+  }
+
   button {
     background: none;
-    margin-left: 10px;
+    margin-left: 2rem;
     font-size: 2rem;
     border: none;
+    color: ${({ theme }) => theme.text};
     &:hover {
       cursor: pointer;
     }

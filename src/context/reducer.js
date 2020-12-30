@@ -8,6 +8,11 @@ export const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    /*
+    Set the color theme of the web app
+    Default: "light" or "dark" string.
+    See @components/layout/Layout to see theming logic
+    */
     case SET_THEME:
       localStorage.setItem("theme", action.theme);
       return {

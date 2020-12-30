@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+// Components
 import HomePage from "@pages/Home/Home";
 import Page2 from "@pages/Page2/Page2";
 
